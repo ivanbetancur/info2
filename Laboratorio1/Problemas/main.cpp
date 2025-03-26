@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+#include <set>
 
 using namespace std;
 
@@ -305,7 +305,7 @@ el usuario usará los símbolos '>', '<' y '=' para indicarle al programa si B e
 que A. El programa imprimira un nuevo número B, con base en simbolo ingresado por el usuario, y
 repetira el proceso hasta acertar el número seleccionado por usuario. */
 
-    srand(time(0));  // Inicializa la semilla aleatoria
+
     int min = 0;
     int max = 100;
     int B;
@@ -333,9 +333,142 @@ repetira el proceso hasta acertar el número seleccionado por usuario. */
 
 }
 
+/*___________________________________________________________________________________________*/
+/*PROBLEMAS*/
+/*___________________________________________________________________________________________*/
+void Problema1() {
+
+    /*Problema 1. Escriba un programa que identique si un carácter ingresado es una vocal, una consonante
+o ninguna de las 2 e imprima un mensaje según el caso. */
+
+
+    std::set<char> vocales = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
+    std::set<char> consonantes = {
+        'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z',
+        'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'
+    };
+
+    char caracter;
+    std::cout << "Ingrese un caracter: ";
+    std::cin >> caracter;
+    // "el motodo count devulve 1 o 0 si esta en el conjunto"
+    if (vocales.count(caracter) > 0) {
+        std::cout << caracter << " es una vocal.\n";
+    } else if (consonantes.count(caracter) > 0) {
+        std::cout << caracter << " es una consonante.\n";
+    } else {
+        std::cout << "no es una letra.\n";
+    }
+
+
+}
+
+
+void Problema3() {
+
+    /*Problema 3. Escriba un programa que debe leer un mes y un día de dicho mes para luego decir
+si esa combinación de mes y día son válidos. El caso más especial es el 29 de febrero, en dicho caso
+imprimir posiblemente año bisiesto. */
+
+    int mes, dia;
+
+    std::cout << "digita el mes : ";
+    std::cin >> mes;
+    std::cout << "digita el dia : ";
+    std::cin >> dia;
+
+    // Días maximos por mes
+    int diasPorMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    if (mes < 1 || mes > 12) {
+        std::cout << mes << " es un mes invalido.\n";
+    } else if (dia < 1 || dia > diasPorMes[mes - 1]) {
+        if (mes == 2 && dia == 29) {
+            std::cout << "29/2 es valida en bisiesto.\n";
+        } else {
+            std::cout << dia << "/" << mes << " es una fecha invalida.\n";
+        }
+    } else {
+        std::cout << dia << "/" << mes << " es una fecha valida.\n";
+    }
+
+}
+
+
+void Problema5() {
+
+    /*Problema 5. Escriba un programa que muestre el siguiente patrón en la pantalla: */
+
+
+int n;
+
+// Solicitar al usuario un número impar
+std::cout << "Ingrese un numero impar : ";
+std::cin >> n;
+
+// Validar que sea impar
+while (n % 2 == 0) {  // Si el número es par, solicitar de nuevo
+    std::cout << "Por favor ingrese un numero q sea impar: ";
+    std::cin >> n;
+}
+
+// Imprimir la parte superior del patrón
+for (int i = 1; i <= n; i += 2) {
+    for (int j = 0; j < i; j++) {
+        std::cout << "*";
+    }
+    std::cout << std::endl;
+}
+
+// Imprimir la parte inferior del patrón
+for (int i = n - 2; i >= 1; i -= 2) {
+    for (int j = 0; j < i; j++) {
+        std::cout << "*";
+    }
+    std::cout << std::endl;
+}
+
+
+}
+
+
+void Problema7() {
+
+    /*En la serie de Fibonacci, cada número es la suma de los 2 anteriores e inicia con 1 y
+1. Ej: 1, 1, 2, 3, 5, 8, ....
+Escriba un programa que reciba un número n y halle la suma de todos los números pares en la serie
+de Fibonacci menores a n. */
+    int n;
+
+    // Pedir al usuario un número límite
+    std::cout << "favor ingrese el numero limite: ";
+    std::cin >> n;
+
+    // Variables para la serie de Fibonacci
+    int a = 1, b = 1, siguiente = 0, sumaPares = 0;
+
+    // Generar la serie de Fibonacci y sumar los números pares menores a n
+    while (b < n) {  // Iteramos hasta que b sea menor que n
+        if (b % 2 == 0) { // Si el número es par, se suma
+            sumaPares += b;
+        }
+
+        // Calcular el siguiente número de Fibonacci
+        siguiente = a + b;
+        a = b;
+        b = siguiente;
+    }
+
+    // Mostrar el resultado
+    std::cout << "El resultado de la suma es: " << sumaPares << std::endl;
+
+
+}
+
+
 
 int main()
 {
-    Ejercicio29();
+    Problema7();
 
 }
