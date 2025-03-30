@@ -254,16 +254,25 @@ común múltiplo entre los dos.(mcm es el número más pequeño de los múltiplo
     std::cout << "Ingrese el segundo numero: ";
     std::cin >> b;
 
-    maximo = (a > b) ? a : b; // Tomamos el mayor de los dos
+    // busco el mayor de los dos
+    if (a > b)
+    {
+        maximo = a;
+    } else
+    {
+        maximo = b;
+    }
 
     mcm = maximo;
 
-    while (true) {
-        if (mcm % a == 0 && mcm % b == 0) { // Si es múltiplo de ambos
+    while (true)
+    {
+        if (mcm % a == 0 && mcm % b == 0)
+        { // valido se es multiplo de ambos numeros
             std::cout << "El MCM de " << a << " y " << b << " es: " << mcm << std::endl;
             break;
         }
-        mcm++; // Aumentamos en 1 hasta encontrar el MCM
+        mcm++;
     }
 }
 
@@ -291,6 +300,7 @@ dígitos de N. */
     std::cout << "El numero " << numero <<  " Tiene " << contador << " digitos." << std::endl;
 
 }
+
 
 
 void Ejercicio27() {
@@ -661,6 +671,6 @@ con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21
 
 int main()
 {
-    Ejercicio21();
+    Ejercicio25();
 
 }
