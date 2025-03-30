@@ -283,15 +283,19 @@ void Ejercicio25() {
 dígitos de N. */
 
     int N,numero, contador;
-    std::cout << "Ingrese un numero: ";
+    std::cout << "digite un numero de N digitos: ";
     std::cin >> N;
     numero = N;
     contador = 0;
 
-    if (N == 0) {
+    if (N == 0)
+    {
         contador = 1;
-    } else {
-        while (N != 0) {
+    }
+    else
+    {
+        while (N != 0) //uso el while para contar cuántas veces N puede dividirse por 10 antes de llegar a 0
+        {
             N = N / 10;
             contador = contador + 1;
         }
@@ -308,7 +312,8 @@ void Ejercicio27() {
     /*Ejercicio 27. Escriba un programa que actúe como una calculadora con operaciones de suma,
 resta, multiplicación y división, el usuario debe ingresar los operandos y la operación a realizar. */
 
-    double a, b, opcion;
+    double a, b;
+    int  opcion;
 
     std::cout << "Ingrese el primer numero: ";
     std::cin >> a;
@@ -323,16 +328,22 @@ resta, multiplicación y división, el usuario debe ingresar los operandos y la 
     std::cout << "Opcion: ";
     std::cin >> opcion;
 
-    if (opcion == 1) {
+    if (opcion == 1)
+    {
         std::cout << a << " + " << b << " = " << (a + b) << std::endl;
-    } else if (opcion == 2) {
+    } else if (opcion == 2)
+    {
         std::cout << a << " - " << b << " = " << (a - b) << std::endl;
-    } else if (opcion == 3) {
+    } else if (opcion == 3)
+    {
         std::cout << a << " * " << b << " = " << (a * b) << std::endl;
-    } else if (opcion == 4) {
-        if (b != 0) {
+    } else if (opcion == 4)
+    {
+        if (b != 0)
+        {
             std::cout << a << " / " << b << " = " << (a / b) << std::endl;
-        } else {
+        } else
+        {
             std::cout << "Error: No se puede dividir por cero." << std::endl;
         }
     } else {
@@ -353,25 +364,29 @@ repetira el proceso hasta acertar el número seleccionado por usuario. */
 
     int min = 0;
     int max = 100;
-    int B;
+    int numIncognito;
     char respuesta;
 
     std::cout << "Piensa en un numero entre 0 y 100\n";
 
     while (true) {
-        B = (min + max) / 2;  // Se genera un número en el medio del rango
-        std::cout << "Tu numero es " << B << " (Ingresa > si es mayor  \n ";
-        std::cout <<  " Ingresa < si es menor \n ";
-        std::cout <<  " Ingresa = si es correcto :\n ";
+        numIncognito = (min + max) / 2;  // Se genera un número en el medio del rango
+        std::cout <<  " Tu numero es " << numIncognito <<  " ?\n";
+        std::cout <<  " Ingresa > si es mayor  \n";
+        std::cout <<  " Ingresa < si es menor \n";
+        std::cout <<  " Ingresa = si es correcto :\n";
         std::cin >> respuesta;
 
-        if (respuesta == '=') {
-            std::cout << "Tu numero elegido es " << B << ".\n";
+        if (respuesta == '=')
+        {
+            std::cout << "Tu numero elegido es " << numIncognito << ".\n";
             break;
-        } else if (respuesta == '>') {
-            min = B + 1;  // El número es mayor, se ajusta el rango
-        } else if (respuesta == '<') {
-            max = B - 1;  // El número es menor, se ajusta el rango
+        } else if (respuesta == '>')
+        {
+            min = numIncognito + 1;  // si el numero es mayor se ajusta el rango
+        } else if (respuesta == '<')
+        {
+            max = numIncognito - 1;  // si el numero es menor se ajusta el rango
         }
     }
 
@@ -671,6 +686,6 @@ con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21
 
 int main()
 {
-    Ejercicio25();
+    Ejercicio29();
 
 }
