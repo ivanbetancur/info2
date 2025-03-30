@@ -142,13 +142,15 @@ void Ejercicio15() {
 
     /*Ejercicio 15. Escriba un programa que pida constantemente números hasta que se ingrese el nú-
 mero cero e imprima en pantalla la suma de todos los números ingresados. */
-    int num, suma = 0;
-    std::cout << "Ingrese un numero (0 para terminar): ";
+    int num;
+    int suma = 0;
+    std::cout << "ingrese un numero: ";
     std::cin >> num;
 
-    while (num != 0) {
-        suma += num;
-        std::cout << "Ingrese un numero (0 para terminar): ";
+    while (num != 0)
+    {
+        suma = suma + num;
+        std::cout << "ingrese otro numero o digite 0 para finalizar: ";
         std::cin >> num;
     }
 
@@ -156,23 +158,26 @@ mero cero e imprima en pantalla la suma de todos los números ingresados. */
 
 }
 
+
 void Ejercicio17() {
 
     /*Ejercicio 17. Escriba un programa que pida constantemente números hasta que se ingrese el nú-
 mero cero e imprima en pantalla el mayor de todos los números ingresados. */
     int num, mayor = 0;
-    std::cout << "Ingrese un numero (0 para terminar): ";
+    std::cout << "Ingrese un numero: ";
     std::cin >> num;
 
-    while (num != 0) {
-        if (num > mayor) {
+    while (num != 0)
+    {
+        if (num > mayor)
+        {
             mayor = num;
         }
-        std::cout << "Ingrese un numero (0 para terminar): ";
+        std::cout << "ingrese otro numero o digite 0 para finalizar: ";
         std::cin >> num;
     }
 
-    std::cout << "El numero mayor fue: " << mayor << std::endl;
+    std::cout << "El numero mayor ingresado es: " << mayor << std::endl;
 
 }
 
@@ -180,25 +185,33 @@ void Ejercicio19() {
 
     /*Ejercicio 19. Escriba un programa que pida un número N e imprima si es o no un número primo. */
     int n, i;
-    int esPrimo = 1;
+    int esPrimo = 1;// cuando esta en 0 significa que no es primo
 
-    std::cout << "Ingrese N: ";
+    std::cout << "Ingrese un numero para validar si es primo: ";
     std::cin >> n;
 
-    if (n < 2) {
+    if (n < 2)
+    {
         esPrimo = 0;
-    } else {
-        for (i = 2; i < n; i++) {
-            if (n % i == 0) {
+    }
+    else
+    {
+        for (i = 2; i < n; i++)
+        {
+            if (n % i == 0)
+            {
                 esPrimo = 0;
                 break;
             }
         }
     }
 
-    if (esPrimo) {
+    if (esPrimo==1)
+    {
         std::cout << n << " es primo." << std::endl;
-    } else {
+    }
+    else
+    {
         std::cout << n << " no es primo." << std::endl;
     }
 
@@ -209,19 +222,24 @@ void Ejercicio21() {
 
     /*Ejercicio 21. Escriba un programa que pida un carácter C, si es una letra la debe convertir de
 mayúscula a minúscula y viceversa e imprimirla. */
+    //  en la tabla ASCII la diferencia entre una mayscula y su equivalente en
+    //minuscula es exactamente 32 posiciones.
 
-    char c, Lconver;
+    char c, conver;
     std::cout << "digite un caracter: ";
     std::cin >> c;
 
-    if (c >= 'A' && c <= 'Z') {
-        Lconver = c + 32;  // Convertir a minúscula
-    } else if (c >= 'a' && c <= 'z') {
-        Lconver = c - 32;  // Convertir a mayúscula
+    if (c >= 'A' && c <= 'Z')
+    {
+        conver = c + 32;  // Convertir a minúscula
     }
-//  en la tabla ASCII la diferencia entre una mayscula y su equivalente en
-//minuscula es exactamente 32 posiciones.
-    std::cout << "Letra convertida: " << Lconver << std::endl;
+    else if (c >= 'a' && c <= 'z')
+    {
+        conver = c - 32;  // Convertir a mayúscula
+    }
+
+    std::cout << "Letra convertida: " << conver << std::endl;
+
 
 }
 
@@ -643,6 +661,6 @@ con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21
 
 int main()
 {
-    Ejercicio13();
+    Ejercicio21();
 
 }
