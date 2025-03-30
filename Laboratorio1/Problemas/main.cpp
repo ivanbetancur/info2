@@ -453,22 +453,170 @@ de Fibonacci menores a n. */
             sumaPares += b;
         }
 
-        // Calcular el siguiente número de Fibonacci
+        // calculo el sigite numero de Fibonacci
         siguiente = a + b;
         a = b;
         b = siguiente;
     }
 
-    // Mostrar el resultado
+
     std::cout << "El resultado de la suma es: " << sumaPares << std::endl;
 
 
 }
 
 
+void Problema9() {
+
+    /*Problema 9. Escriba un programa que pida un número entero N e imprima el resultado de la suma
+    de todos sus dígitos elevados a sí mismos. */
+
+
+    int N, suma = 0;
+
+    std::cout << "Ingrese un numero: ";
+    std::cin >> N;
+
+    int temp = N; // se guarda en una var temporal
+
+    while (temp > 0) {
+        int digito = temp % 10;   // Extrae el último dígito
+        suma += pow(digito, digito);  // Eleva el dígito a sí mismo y suma
+        temp /= 10;   // Elimina el último dígito
+    }
+
+    std::cout << "El resultado de la suma es: " << suma << std::endl;
+
+
+}
+
+
+/*___________________________________________________________________________________________*/
+/*Problema 11. Escriba un programa que reciba un número y calcule el mínimo común múltiplo de
+todos los números enteros entre 1 y el número ingresado. */
+/*___________________________________________________________________________________________*/
+// Función para verificar si un número es múltiplo de todos los números de 1 a N
+bool esMultiplo(int num, int N) {
+    for (int i = 1; i <= N; i++) {
+        if (num % i != 0) {
+            return false; // Si no es divisible por algún número, no es el MCM
+        }
+    }
+    return true; // Si es divisible por todos, es el MCM
+}
+// Función para encontrar el MCM buscando el menor número que sea múltiplo de 1 a N
+int calcularMCM(int N) {
+    int mcm = N; // Empezamos desde el número N
+    while (!esMultiplo(mcm, N)) {
+        mcm++; // Aumentamos hasta encontrar el primer múltiplo de todos
+    }
+    return mcm;
+}
+void Problema11() {
+
+    /*Problema 11. Escriba un programa que reciba un número y calcule el mínimo común múltiplo de
+todos los números enteros entre 1 y el número ingresado. */
+
+    int N;
+    std::cout << "Ingrese un numero: ";
+    std::cin >> N;
+
+    int resultado = calcularMCM(N);
+
+    std::cout << "El minimo comun multiplo es: " << resultado << std::endl;
+
+
+}
+
+/*___________________________________________________________________________________________*/
+/*Problema 13. Escriba un programa que reciba un número y calcule la suma de todos los primos
+menores que el número ingresado. */
+/*___________________________________________________________________________________________*/
+
+// Función para verificar si un número es primo
+bool esPrimo(int num) {
+    if (num < 2) return false; // 0 y 1 no son primos
+
+    for (int i = 2; i < num; i++) { // Revisamos desde 2 hasta num-1
+        if (num % i == 0) {
+            return false; // Si tiene algún divisor, no es primo
+        }
+    }
+    return true; // Si no encontró divisores, es primo
+}
+
+void Problema13() {
+
+    /*Problema 13. Escriba un programa que reciba un número y calcule la suma de todos los primos
+menores que el número ingresado. */
+
+    int N;
+
+    // Pedir el numero al usuario
+    std::cout << "Ingrese un numero: ";
+    std::cin >> N;
+
+    int sumaPrimos = 0;
+
+    // Recorremos todos los números menores a N
+    for (int i = 2; i < N; i++) {
+        if (esPrimo(i)) { // Si el número es primo, lo sumamos
+            sumaPrimos += i;
+        }
+    }
+
+    // Mostrar el resultado
+    std::cout << "El resultado de la suma es: " << sumaPrimos << std::endl;
+
+}
+
+/*___________________________________________________________________________________________*/
+/*Problema 15. Empezando con el número 1 y moviéndose hacia la izquierda y en sentido horario
+se genera una espiral de números como la siguiente: */
+/*___________________________________________________________________________________________*/
+
+
+
+
+
+void Problema15() {
+
+    /*Empezando con el número 1 y moviéndose hacia la izquierda y en sentido horario
+se genera una espiral de números como la siguiente:  En el caso de esta espiral de 5x5,
+la suma de los números en la diagonal es 101.
+Escriba un programa que reciba un número impar n y calcule la suma de los números en la diagonal
+de una espiral de nxn. */
+
+    int n;
+
+    // Solicitar un número impar al usuario
+    std::cout << "Ingrese un numero impar para la espiral: ";
+    std::cin >> n;
+
+    if (n % 2 == 0) {
+        std::cout << "El número debe ser impar." << std::endl;
+        return;
+    }
+
+    int sumaDiagonal = 1; // La espiral siempre empieza en 1
+    int numero = 1;
+
+    // Sumar los números de las diagonales
+    for (int lado = 3; lado <= n; lado += 2) {
+        for (int i = 0; i < 4; i++) {
+            numero += (lado - 1);
+            sumaDiagonal += numero;
+        }
+    }
+
+    // Imprimir el resultado
+    std::cout << "En una espiral de " << n << "x" << n << ", la suma es: " << sumaDiagonal << std::endl;
+
+}
+
 
 int main()
 {
-    Problema7();
+    Problema13();
 
 }
