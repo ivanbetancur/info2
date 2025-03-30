@@ -22,14 +22,17 @@ void Ejercicio3() {
     /*Ejercicio 3. Escriba un programa que pida dos números A y B e imprima en pantalla el mayor.*/
 
     int a, b;
-    std::cout << "Ingrese numero A: ";
+    std::cout << "Digite el numero A: ";
     std::cin >> a;
-    std::cout << "Ingrese numero B: ";
+    std::cout << "Digite el numero B: ";
     std::cin >> b;
+
     if (a > b) {
         std::cout << "El numero mayor es " << a << std::endl;
-    } else {
+    } else if (b > a) {
         std::cout << "El numero mayor es " << b << std::endl;
+    } else {
+        std::cout << "Ambos numeros son iguales." << std::endl;
     }
 
 }
@@ -589,12 +592,12 @@ de una espiral de nxn. */
 
     int n;
 
-    // Solicitar un número impar al usuario
+    // Solicitar un numero impar al usuario
     std::cout << "Ingrese un numero impar para la espiral: ";
     std::cin >> n;
 
     if (n % 2 == 0) {
-        std::cout << "El número debe ser impar." << std::endl;
+        std::cout << "el numero ingresado debe ser impar." << std::endl;
         return;
     }
 
@@ -615,8 +618,17 @@ de una espiral de nxn. */
 }
 
 
+/*___________________________________________________________________________________________*/
+/*Problema 17. La secuencia de números triangulares se forma al sumar su posición en el arreglo
+con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21+7=28... */
+/*___________________________________________________________________________________________*/
+
+
+
+
+
 int main()
 {
-    Problema13();
+    Ejercicio7();
 
 }
