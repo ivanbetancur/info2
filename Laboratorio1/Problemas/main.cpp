@@ -398,12 +398,13 @@ repetira el proceso hasta acertar el número seleccionado por usuario. */
 /*___________________________________________________________________________________________*/
 void Problema1() {
 
-    /*Problema 1. Escriba un programa que identique si un carácter ingresado es una vocal, una consonante
+    /*Problema 1. Escriba un programa que identifique si un carácter ingresado es una vocal, una consonante
 o ninguna de las 2 e imprima un mensaje según el caso. */
 
 
     std::set<char> vocales = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'};
-    std::set<char> consonantes = {
+    std::set<char> consonantes =
+        {
         'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z',
         'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'
     };
@@ -412,11 +413,14 @@ o ninguna de las 2 e imprima un mensaje según el caso. */
     std::cout << "Ingrese un caracter: ";
     std::cin >> caracter;
     // "el motodo count devulve 1 o 0 si esta en el conjunto"
-    if (vocales.count(caracter) > 0) {
+    if (vocales.count(caracter) > 0)
+    {
         std::cout << caracter << " es una vocal.\n";
-    } else if (consonantes.count(caracter) > 0) {
+    } else if (consonantes.count(caracter) > 0)
+    {
         std::cout << caracter << " es una consonante.\n";
-    } else {
+    } else
+    {
         std::cout << "no es una letra.\n";
     }
 
@@ -428,7 +432,7 @@ void Problema3() {
 
     /*Problema 3. Escriba un programa que debe leer un mes y un día de dicho mes para luego decir
 si esa combinación de mes y día son válidos. El caso más especial es el 29 de febrero, en dicho caso
-imprimir posiblemente año bisiesto. */
+imprimir posiblemente año bisiesto. */
 
     int mes, dia;
 
@@ -438,17 +442,22 @@ imprimir posiblemente año bisiesto. */
     std::cin >> dia;
 
     // Días maximos por mes
-    int diasPorMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int diasMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    if (mes < 1 || mes > 12) {
+    if (mes < 1 || mes > 12)
+    {
         std::cout << mes << " es un mes invalido.\n";
-    } else if (dia < 1 || dia > diasPorMes[mes - 1]) {
+    }
+    else if (dia < 1 || dia > diasMes[mes - 1])
+    {
         if (mes == 2 && dia == 29) {
-            std::cout << "29/2 es valida en bisiesto.\n";
-        } else {
-            std::cout << dia << "/" << mes << " es una fecha invalida.\n";
+            std::cout << "29/2 es valida en año bisiesto.\n";
+        } else
+        {
+            std::cout << dia << "/" << mes << " fecha no valida.\n";
         }
-    } else {
+    }
+    else {
         std::cout << dia << "/" << mes << " es una fecha valida.\n";
     }
 
@@ -462,27 +471,31 @@ void Problema5() {
 
 int n;
 
-// Solicitar al usuario un número impar
+// solicito ingresar un número impar
 std::cout << "Ingrese un numero impar : ";
 std::cin >> n;
 
-// Validar que sea impar
-while (n % 2 == 0) {  // Si el número es par, solicitar de nuevo
+// aca valido q sea impar que sea impar
+while (n % 2 == 0) {
     std::cout << "Por favor ingrese un numero q sea impar: ";
     std::cin >> n;
 }
 
-// Imprimir la parte superior del patrón
-for (int i = 1; i <= n; i += 2) {
-    for (int j = 0; j < i; j++) {
+// se muestra la parte superior
+for (int i = 1; i <= n; i += 2)
+{
+    for (int j = 0; j < i; j++)
+    {
         std::cout << "*";
     }
     std::cout << std::endl;
 }
 
-// Imprimir la parte inferior del patrón
-for (int i = n - 2; i >= 1; i -= 2) {
-    for (int j = 0; j < i; j++) {
+// aca la parte inferior
+for (int i = n - 2; i >= 1; i -= 2)
+{
+    for (int j = 0; j < i; j++)
+    {
         std::cout << "*";
     }
     std::cout << std::endl;
@@ -500,16 +513,15 @@ Escriba un programa que reciba un número n y halle la suma de todos los número
 de Fibonacci menores a n. */
     int n;
 
-    // Pedir al usuario un número límite
+
     std::cout << "favor ingrese el numero limite: ";
     std::cin >> n;
 
-    // Variables para la serie de Fibonacci
     int a = 1, b = 1, siguiente = 0, sumaPares = 0;
 
-    // Generar la serie de Fibonacci y sumar los números pares menores a n
-    while (b < n) {  // Iteramos hasta que b sea menor que n
-        if (b % 2 == 0) { // Si el número es par, se suma
+    while (b < n) {
+        if (b % 2 == 0)
+        { // Si el número es par lo sumo
             sumaPares += b;
         }
 
@@ -518,7 +530,6 @@ de Fibonacci menores a n. */
         a = b;
         b = siguiente;
     }
-
 
     std::cout << "El resultado de la suma es: " << sumaPares << std::endl;
 
@@ -537,12 +548,13 @@ void Problema9() {
     std::cout << "Ingrese un numero: ";
     std::cin >> N;
 
-    int temp = N; // se guarda en una var temporal
+    int temp = N;
 
-    while (temp > 0) {
+    while (temp > 0)
+    {
         int digito = temp % 10;   // Extrae el último dígito
         suma += pow(digito, digito);  // Eleva el dígito a sí mismo y suma
-        temp /= 10;   // Elimina el último dígito
+        temp = temp/10;   // para eliminar el último dígito
     }
 
     std::cout << "El resultado de la suma es: " << suma << std::endl;
@@ -553,12 +565,15 @@ void Problema9() {
 
 /*___________________________________________________________________________________________*/
 /*Problema 11. Escriba un programa que reciba un número y calcule el mínimo común múltiplo de
-todos los números enteros entre 1 y el número ingresado. */
+todos los números enteros entre 1 y el número ingresado. mcm es el número positivo más pequeño que es
+múltiplo de dos o más números. */
 /*___________________________________________________________________________________________*/
-// Función para verificar si un número es múltiplo de todos los números de 1 a N
+// verifico si un número es multiplo de todos los números hasta N
 bool esMultiplo(int num, int N) {
-    for (int i = 1; i <= N; i++) {
-        if (num % i != 0) {
+    for (int i = 1; i <= N; i++)
+    {
+        if (num % i != 0)
+        {
             return false; // Si no es divisible por algún número, no es el MCM
         }
     }
@@ -566,12 +581,14 @@ bool esMultiplo(int num, int N) {
 }
 // Función para encontrar el MCM buscando el menor número que sea múltiplo de 1 a N
 int calcularMCM(int N) {
-    int mcm = N; // Empezamos desde el número N
+    int mcm = N;
     while (!esMultiplo(mcm, N)) {
-        mcm++; // Aumentamos hasta encontrar el primer múltiplo de todos
+        mcm++;
     }
     return mcm;
 }
+
+
 void Problema11() {
 
     /*Problema 11. Escriba un programa que reciba un número y calcule el mínimo común múltiplo de
@@ -595,14 +612,14 @@ menores que el número ingresado. */
 
 // Función para verificar si un número es primo
 bool esPrimo(int num) {
-    if (num < 2) return false; // 0 y 1 no son primos
+    if (num < 2) return false;
 
-    for (int i = 2; i < num; i++) { // Revisamos desde 2 hasta num-1
+    for (int i = 2; i < num; i++) {
         if (num % i == 0) {
-            return false; // Si tiene algún divisor, no es primo
+            return false;
         }
     }
-    return true; // Si no encontró divisores, es primo
+    return true;
 }
 
 void Problema13() {
@@ -612,7 +629,7 @@ menores que el número ingresado. */
 
     int N;
 
-    // Pedir el numero al usuario
+
     std::cout << "Ingrese un numero: ";
     std::cin >> N;
 
@@ -625,7 +642,7 @@ menores que el número ingresado. */
         }
     }
 
-    // Mostrar el resultado
+
     std::cout << "El resultado de la suma es: " << sumaPrimos << std::endl;
 
 }
@@ -649,7 +666,7 @@ de una espiral de nxn. */
 
     int n;
 
-    // Solicitar un numero impar al usuario
+
     std::cout << "Ingrese un numero impar para la espiral: ";
     std::cin >> n;
 
@@ -661,7 +678,7 @@ de una espiral de nxn. */
     int sumaDiagonal = 1; // La espiral siempre empieza en 1
     int numero = 1;
 
-    // Sumar los números de las diagonales
+    // sumo los numeros de las diagonales
     for (int lado = 3; lado <= n; lado += 2) {
         for (int i = 0; i < 4; i++) {
             numero += (lado - 1);
@@ -686,6 +703,6 @@ con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21
 
 int main()
 {
-    Ejercicio29();
+    Problema9();
 
 }
