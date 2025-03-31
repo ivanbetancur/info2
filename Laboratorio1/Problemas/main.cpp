@@ -569,20 +569,21 @@ todos los números enteros entre 1 y el número ingresado. mcm es el número pos
 múltiplo de dos o más números. */
 /*___________________________________________________________________________________________*/
 // verifico si un número es multiplo de todos los números hasta N
-bool esMultiplo(int num, int N) {
+bool Multiplo(int num, int N) {
     for (int i = 1; i <= N; i++)
     {
         if (num % i != 0)
         {
-            return false; // Si no es divisible por algún número, no es el MCM
+            return false; // Si no es divisible por algún numero no es el MCM
         }
     }
-    return true; // Si es divisible por todos, es el MCM
+    return true; // Si es divisible por todos es mcm
 }
-// Función para encontrar el MCM buscando el menor número que sea múltiplo de 1 a N
+// funsion para encontrar el MCM buscando el menor numero que sea múltiplo de 1 a N
 int calcularMCM(int N) {
     int mcm = N;
-    while (!esMultiplo(mcm, N)) {
+    while (!Multiplo(mcm, N))
+    {
         mcm++;
     }
     return mcm;
@@ -703,6 +704,6 @@ con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21
 
 int main()
 {
-    Problema9();
+    Problema11();
 
 }
