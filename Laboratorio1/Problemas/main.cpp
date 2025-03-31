@@ -612,11 +612,14 @@ menores que el número ingresado. */
 /*___________________________________________________________________________________________*/
 
 // Función para verificar si un número es primo
-bool esPrimo(int num) {
+bool Primo(int num)
+{
     if (num < 2) return false;
 
-    for (int i = 2; i < num; i++) {
-        if (num % i == 0) {
+    for (int i = 2; i < num; i++)
+    {
+        if (num % i == 0)
+        {
             return false;
         }
     }
@@ -636,9 +639,9 @@ menores que el número ingresado. */
 
     int sumaPrimos = 0;
 
-    // Recorremos todos los números menores a N
+    // busco todos los números menores a N
     for (int i = 2; i < N; i++) {
-        if (esPrimo(i)) { // Si el número es primo, lo sumamos
+        if (Primo(i)) { // Si el número es primo, lo sumamos
             sumaPrimos += i;
         }
     }
@@ -663,32 +666,39 @@ void Problema15() {
 se genera una espiral de números como la siguiente:  En el caso de esta espiral de 5x5,
 la suma de los números en la diagonal es 101.
 Escriba un programa que reciba un número impar n y calcule la suma de los números en la diagonal
-de una espiral de nxn. */
+de una espiral de nxn.
+21 22 23 24 25
+20  7  8  9 10
+19  6  1  2 11
+18  5  4  3 12
+17 16 15 14 13 */
 
     int n;
 
 
     std::cout << "Ingrese un numero impar para la espiral: ";
     std::cin >> n;
-
+    //valido que el numero sea impar
     if (n % 2 == 0) {
         std::cout << "el numero ingresado debe ser impar." << std::endl;
         return;
     }
 
-    int sumaDiagonal = 1; // La espiral siempre empieza en 1
-    int numero = 1;
+    int sumaDiagonal = 1; // porq siempre se empieza en 1
+    int numero = 1; // Variable que almacena el numero actual en la espiral.
 
     // sumo los numeros de las diagonales
-    for (int lado = 3; lado <= n; lado += 2) {
-        for (int i = 0; i < 4; i++) {
+    for (int lado = 3; lado <= n; lado += 2) // incremento de 2 porq son los impares
+    {
+        for (int i = 0; i < 4; i++)// // Se repite 4 veces por cada esquina
+        {
             numero += (lado - 1);
             sumaDiagonal += numero;
         }
     }
 
-    // Imprimir el resultado
-    std::cout << "En una espiral de " << n << "x" << n << ", la suma es: " << sumaDiagonal << std::endl;
+
+    std::cout << "En una espiral de " << n << " x " << n << ", la suma es: " << sumaDiagonal << std::endl;
 
 }
 
@@ -704,6 +714,6 @@ con el valor del número anterior: 1, 1+2=3, 3+3=6, 6+4=10, 10+5=15, 15+6=21, 21
 
 int main()
 {
-    Problema11();
+    Problema15();
 
 }
